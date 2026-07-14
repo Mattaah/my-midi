@@ -121,3 +121,23 @@ void MyMIDI::send_control_change(byte channel, byte controller, byte controller_
     db_ctrl_change_2 =                byte(controller_value);
   }
 }
+
+void MyMIDI::send_program_change(byte channel, byte program_number);
+{
+  // verify the parameter limits
+  if (((CHANNEL_01 + 0b01) <= channel        && channel <= (CHANNEL_16 + 0b01)) &&
+      (0b0                 <= program_number && program_number <= 0b1111111  ))
+  {
+    // convert the data into binary system (optional) and store in object members
+    sb_program_change  = STATUS_NOTE_PC | byte(channel-1     );
+    db_program_change  =                  byte(program_number);
+
+    // verify the serial status (ON or OFF)
+    if (serial_status)
+    {
+      // send the message via UART protocol (which is implemented in Serial class)
+      Serial.write(sb_program_change);
+      Serial.write(db_program_change);
+    }
+  }
+}

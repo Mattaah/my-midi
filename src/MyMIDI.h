@@ -59,6 +59,8 @@ public:
   void send_key_pressure(byte channel, byte note, byte pressure_value);
 
   void send_control_change(byte channel, byte controller, byte controller_value);
+
+  void send_program_change(byte channel, byte program_number);
 };
 
 #endif

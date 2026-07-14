@@ -26,7 +26,6 @@ private:
   byte sb_poly_key_press;
   byte sb_ctlr_change;
   byte sb_program_change;
-  byte sb_channel_pressure;
 // variables to store data bytes
   byte db_note_on_1;
   byte db_note_on_2;
@@ -37,7 +36,6 @@ private:
   byte db_ctrl_change_1;
   byte db_ctrl_change_2;
   byte db_program_change;
-  byte db_channel_pessure;
 // state variables
   bool serial_status;
 

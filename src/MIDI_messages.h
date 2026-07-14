@@ -23,8 +23,6 @@
 #define STATUS_NOTE_POLY_KEY 0b10100000
 #define STATUS_NOTE_CC       0b10110000
 #define STATUS_NOTE_PC       0b11000000
-#define STATUS_NOTE_CP       0b11010000
-#define STATUS_NOTE_PB       0b11100000
 
 /* Second part of status byte */
 

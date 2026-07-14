@@ -94,6 +94,20 @@ void MyMIDI::send_note_off(byte channel, byte note, byte velocity)
   }
 }
 
+// send aftertouch message
+void MyMidi::send_key_pressure(byte channel, byte note, byte pressure_value)
+{
+  // verify the parameter limits
+  if (((CHANNEL_01 + 0b01) <= channel        && channel        <= (CHANNEL_16 + 0b01)) &&
+      (0b0                 <= note           && note           <= 0b1110111          ) &&
+      (0b0                 <= pressure_value && pressure_value <= 0b1111111         ))
+  {
+    sb_poly_key_press   = STATUS_NOTE_POLY_KEY | byte(channel-1     );
+    db_poly_key_press_1 =                        byte(note          );
+    db_poly_key_press_2 =                        byte(pressure_value);
+  }
+}
+
 // send control change message
 void MyMIDI::send_control_change(byte channel, byte controller, byte controller_value)
 {

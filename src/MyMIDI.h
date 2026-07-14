@@ -56,6 +56,8 @@ public:
   // send MIDI message note off
   void send_note_off(byte channel, byte note, byte velocity);
 
+  void send_key_pressure(byte channel, byte note, byte pressure_value);
+
   void send_control_change(byte channel, byte controller, byte controller_value);
 };
 

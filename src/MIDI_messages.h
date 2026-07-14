@@ -12,6 +12,9 @@
   License : MIT 
 */
 
+#ifndef MIDI_MESSAGES_H
+#define MIDI_MESSAGES_H
+
 /* First part of status byte */
 
 // channel voice messages
@@ -42,3 +45,5 @@
 #define CHANNEL_14 0b1101
 #define CHANNEL_15 0b1110
 #define CHANNEL_16 0b1111
+
+#endif

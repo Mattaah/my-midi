@@ -56,10 +56,13 @@ public:
   // send MIDI message note off
   void send_note_off(byte channel, byte note, byte velocity);
 
+  // send MIDI message about individual key pressure (after touch)
   void send_key_pressure(byte channel, byte note, byte pressure_value);
 
+  // send MIDI message about a controller
   void send_control_change(byte channel, byte controller, byte controller_value);
 
+  // send MIDI message to change the make sound
   void send_program_change(byte channel, byte program_number);
 };
 

@@ -94,7 +94,7 @@ void MyMIDI::send_note_off(byte channel, byte note, byte velocity)
   }
 }
 
-// send aftertouch message
+// send MIDI message about individual key pressure (after touch)
 void MyMidi::send_key_pressure(byte channel, byte note, byte pressure_value)
 {
   // verify the parameter limits
@@ -108,7 +108,7 @@ void MyMidi::send_key_pressure(byte channel, byte note, byte pressure_value)
   }
 }
 
-// send control change message
+// send MIDI message about a controller
 void MyMIDI::send_control_change(byte channel, byte controller, byte controller_value)
 {
   // verify the parameter limits
@@ -122,6 +122,7 @@ void MyMIDI::send_control_change(byte channel, byte controller, byte controller_
   }
 }
 
+// send MIDI message to change the make sound
 void MyMIDI::send_program_change(byte channel, byte program_number);
 {
   // verify the parameter limits

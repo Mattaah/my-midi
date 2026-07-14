@@ -22,7 +22,8 @@ class MyMIDI
 private:
 // variables to store status bytes
   byte sb_note_on;
-  byte sb_note_off;
+  byte sb_note_off_1;
+  byte sb_note_off_2;
   byte sb_poly_key_press;
   byte sb_ctlr_change;
   byte sb_program_change;
@@ -43,14 +44,17 @@ public:
   // constructor
   MyMIDI();
 
+  // init UART serial communication protocol
   void begin();
 
+  // end UART serial communication protocol
   void end();
 
+  // send MIDI message note on
   void send_note_on(byte channel, byte note, byte velocity);
 
+  // send MIDI message note off
   void send_note_off(byte channel, byte note, byte velocity);
 };
 
 #endif
-

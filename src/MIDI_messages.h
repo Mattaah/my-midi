@@ -15,13 +15,13 @@
 /* First part of status byte */
 
 // channel voice messages
-#define STATUS_NOTE_ON       0b1001
-#define STATUS_NOTE_OFF      0b1000
-#define STATUS_NOTE_POLY_KEY 0b1010
-#define STATUS_NOTE_CC       0b1011
-#define STATUS_NOTE_PC       0b1100
-#define STATUS_NOTE_CP       0b1101
-#define STATUS_NOTE_PB       0b1110
+#define STATUS_NOTE_ON       0b10010000
+#define STATUS_NOTE_OFF      0b10000000
+#define STATUS_NOTE_POLY_KEY 0b10100000
+#define STATUS_NOTE_CC       0b10110000
+#define STATUS_NOTE_PC       0b11000000
+#define STATUS_NOTE_CP       0b11010000
+#define STATUS_NOTE_PB       0b11100000
 
 /* Second part of status byte */
 

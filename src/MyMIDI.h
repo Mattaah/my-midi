@@ -20,16 +20,38 @@
 class MyMIDI
 {
 private:
-  // nothing yet
+// variables to store status bytes
+  byte sb_note_on;
+  byte sb_note_off;
+  byte sb_poly_key_press;
+  byte sb_ctlr_change;
+  byte sb_program_change;
+  byte sb_channel_pressure;
+// variables to store data bytes
+  byte db_note_on_1;
+  byte db_note_on_2;
+  byte db_note_off_1;
+  byte db_note_off_2;
+  byte db_poly_key_press_1;
+  byte db_poly_key_press_2;
+  byte db_ctrl_change_1;
+  byte db_ctrl_change_2;
+  byte db_program_change;
+  byte db_channel_pessure;
+// state variables
+  bool serial_status;
 
 public:
   // constructor
   MyMIDI();
 
-  void send_note_on();
+  void begin();
 
-  void send_note_off();
-  
+  void end();
+
+  void send_note_on(byte channel, byte note, byte velocity);
+
+  void send_note_off(byte channel, byte note, byte velocity);
 };
 
 #endif

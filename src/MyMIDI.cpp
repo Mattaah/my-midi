@@ -80,8 +80,8 @@ void MyMIDI::send_note_off(byte channel, byte note, byte velocity)
   {
     // convert the data into binary system (optional) and store in object members
     sb_note_off_2  = STATUS_NOTE_OFF | byte(channel-1);
-    db_note_off_1  =                  byte(note     );
-    db_note_off_2  =                  byte(velocity );
+    db_note_off_1  =                   byte(note     );
+    db_note_off_2  =                   byte(velocity );
 
     // verify the serial status (ON or OFF)
     if (serial_status)
@@ -91,5 +91,19 @@ void MyMIDI::send_note_off(byte channel, byte note, byte velocity)
       Serial.write(db_note_on_1  );
       Serial.write(db_note_on_2  );
     }
+  }
+}
+
+// send control change message
+void MyMIDI::send_control_change(byte channel, byte controller, byte controller_value)
+{
+  // verify the parameter limits
+  if (((CHANNEL_01 + 0b01) <= channel          && channel <= (CHANNEL_16 + 0b01)) &&
+      (0b0                 <= controller       && controller     <= 0b1110111   ) &&
+      (0b0                 <= controller_value && controller_value <= 0b1111111 ))
+  {
+    sb_ctlr_change = STATUS_NOTE_CC | byte(channel-1       );
+    db_ctrl_change_1 =                byte(controller      );
+    db_ctrl_change_2 =                byte(controller_value);
   }
 }

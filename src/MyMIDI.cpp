@@ -14,7 +14,7 @@
 
 #include "Arduino.h"
 #include "MyMIDI.h"
-#include "MIDI_messages"
+#include "MIDI_messages.h"
 
 // baud rate constant
 #define BAUD_RATE 31250
@@ -116,7 +116,7 @@ void MyMIDI::send_control_change(byte channel, byte controller, byte controller_
       (0b0                 <= controller       && controller     <= 0b1110111   ) &&
       (0b0                 <= controller_value && controller_value <= 0b1111111 ))
   {
-    sb_ctlr_change = STATUS_NOTE_CC | byte(channel-1       );
+    sb_ctlr_change   = STATUS_NOTE_CC | byte(channel-1     );
     db_ctrl_change_1 =                byte(controller      );
     db_ctrl_change_2 =                byte(controller_value);
   }
